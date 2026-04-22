@@ -10,12 +10,12 @@ export default function CategoryFilter({ active, onChange }: CategoryFilterProps
     <div className="category-filter" role="list" aria-label="Categories">
       {CATEGORIES.map((cat) => (
         <button
-          key={cat}
+          key={cat.id}
           role="listitem"
-          className={`cat-chip ${active === cat ? 'active' : ''}`}
-          onClick={() => onChange(cat)}
+          className={`cat-chip ${active === cat as unknown as string ? 'active' : ''}`}
+          onClick={() => onChange(cat as unknown as string)}
         >
-          {cat}
+          {"" + cat}
         </button>
       ))}
     </div>

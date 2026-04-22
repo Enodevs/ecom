@@ -40,7 +40,7 @@ function AppInner() {
       <CartDrawer />
       <QuickView product={quickViewProduct} onClose={() => setQuickViewProduct(null)} />
 
-      <main className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 py-5 pb-24 md:pb-10 flex flex-col gap-7">
+      <main className="max-w-[1400px] mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-5 pb-[calc(4.5rem+env(safe-area-inset-bottom))] md:pb-10 flex flex-col gap-4 sm:gap-6 md:gap-7">
         <HeroBanner />
         <PromoBanners />
         <CategoryGrid active={category} onChange={setCategory} />

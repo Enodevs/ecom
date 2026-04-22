@@ -63,28 +63,20 @@ export default function HeroBanner() {
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex">
           {SLIDES.map((s, i) => (
-            <div key={i} className="min-w-full relative min-h-[220px] md:min-h-[340px]">
-              {/* Background photo */}
-              <img
-                src={s.image}
-                alt={s.tag}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              {/* Gradient overlay */}
+            <div key={i} className="min-w-full relative min-h-[200px] sm:min-h-[260px] md:min-h-[340px] lg:min-h-[400px]">
+              <img src={s.image} alt={s.tag} className="absolute inset-0 w-full h-full object-cover" />
               <div className={`absolute inset-0 bg-linear-to-r ${s.tint}`} />
-
-              {/* Content */}
-              <div className="relative z-10 flex items-center h-full px-6 py-8 md:px-14 md:py-12 min-h-[220px] md:min-h-[340px]">
-                <div className="text-white max-w-md">
-                  <span className="inline-block bg-white/20 backdrop-blur-sm border border-white/30 text-white text-xs font-black px-3 py-1 rounded-full mb-3 uppercase tracking-widest">
+              <div className="relative z-10 flex items-center h-full px-5 py-7 sm:px-8 sm:py-10 md:px-14 md:py-12 min-h-[200px] sm:min-h-[260px] md:min-h-[340px] lg:min-h-[400px]">
+                <div className="text-white max-w-xs sm:max-w-sm md:max-w-md">
+                  <span className="inline-block bg-white/20 backdrop-blur-sm border border-white/30 text-white text-[10px] sm:text-xs font-black px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full mb-2 sm:mb-3 uppercase tracking-widest">
                     {s.tag}
                   </span>
-                  <h2 className="text-3xl md:text-5xl font-black leading-tight mb-3 whitespace-pre-line drop-shadow-lg">
+                  <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-2 sm:mb-3 whitespace-pre-line drop-shadow-lg">
                     {s.title}
                   </h2>
-                  <p className="text-white/85 text-sm md:text-base mb-6 drop-shadow">{s.sub}</p>
-                  <button className="paper-btn bg-white text-gray-900 font-black text-sm px-6 py-3 rounded-xl flex items-center gap-2 hover:bg-yellow-300 transition-colors">
-                    {s.cta} <ArrowRight size={15} />
+                  <p className="text-white/85 text-xs sm:text-sm md:text-base mb-4 sm:mb-6 drop-shadow line-clamp-2">{s.sub}</p>
+                  <button className="paper-btn bg-white text-gray-900 font-black text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 rounded-xl flex items-center gap-1.5 sm:gap-2 hover:bg-yellow-300 transition-colors">
+                    {s.cta} <ArrowRight size={13} />
                   </button>
                 </div>
               </div>
@@ -93,18 +85,18 @@ export default function HeroBanner() {
         </div>
       </div>
 
-      {/* Prev / Next */}
+      {/* Prev / Next — hidden on xs, visible sm+ */}
       <button
         onClick={() => emblaApi?.scrollPrev()}
-        className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border-2 border-[#1a1a2e] rounded-full flex items-center justify-center shadow-[2px_2px_0_#1a1a2e] hover:bg-gray-100 transition-colors z-10"
+        className="hidden sm:flex absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-9 md:h-9 bg-white border-2 border-[#1a1a2e] rounded-full items-center justify-center shadow-[2px_2px_0_#1a1a2e] hover:bg-gray-100 transition-colors z-10"
       >
-        <ChevronLeft size={16} />
+        <ChevronLeft size={15} />
       </button>
       <button
         onClick={() => emblaApi?.scrollNext()}
-        className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border-2 border-[#1a1a2e] rounded-full flex items-center justify-center shadow-[2px_2px_0_#1a1a2e] hover:bg-gray-100 transition-colors z-10"
+        className="hidden sm:flex absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-9 md:h-9 bg-white border-2 border-[#1a1a2e] rounded-full items-center justify-center shadow-[2px_2px_0_#1a1a2e] hover:bg-gray-100 transition-colors z-10"
       >
-        <ChevronRight size={16} />
+        <ChevronRight size={15} />
       </button>
 
       {/* Dots */}

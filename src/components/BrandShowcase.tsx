@@ -7,28 +7,28 @@ export default function BrandShowcase() {
         <h2 className="text-lg font-bold text-gray-900">Top Brands</h2>
         <button className="text-sm font-semibold text-[#6c47ff] hover:underline">All brands</button>
       </div>
-      <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-3">
         {BRANDS.map((b) => (
           <button
             key={b.id}
-            className={`${b.bg} rounded-2xl p-4 flex flex-col items-center gap-2 border border-gray-100 hover:border-[#6c47ff] hover:shadow-md hover:scale-105 active:scale-95 transition-all duration-200 group`}
+            className={`${b.bg} rounded-xl sm:rounded-2xl p-2.5 sm:p-4 flex flex-col items-center gap-1.5 sm:gap-2 border-2 border-[#1a1a2e] shadow-[2px_2px_0_#1a1a2e] hover:shadow-[3px_3px_0_#6c47ff] hover:border-[#6c47ff] hover:scale-105 active:scale-95 transition-all duration-200 group`}
           >
             <img
               src={b.logo}
               alt={b.name}
-              className="h-8 w-auto object-contain grayscale group-hover:grayscale-0 transition-all"
+              className="h-6 sm:h-8 w-auto object-contain grayscale group-hover:grayscale-0 transition-all"
               onError={(e) => {
                 const img = e.target as HTMLImageElement;
                 img.style.display = 'none';
                 const span = document.createElement('span');
-                span.className = 'text-2xl font-black text-gray-400';
+                span.className = 'text-lg sm:text-2xl font-black text-gray-400';
                 span.textContent = b.name[0];
                 img.parentElement?.appendChild(span);
               }}
             />
             <div className="text-center">
-              <p className="text-xs font-bold text-gray-700">{b.name}</p>
-              <p className="text-[10px] text-[#6c47ff] font-semibold">{b.discount}</p>
+              <p className="text-[10px] sm:text-xs font-bold text-gray-700 truncate w-full">{b.name}</p>
+              <p className="text-[9px] sm:text-[10px] text-[#6c47ff] font-semibold hidden sm:block">{b.discount}</p>
             </div>
           </button>
         ))}
